@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nora"
+version = "0.1.0"
+description = "A CLI for social agents — conversational AI built on a social ontology."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [
+    { name = "Nora authors" },
+]
+keywords = ["llm", "agents", "multi-agent", "conversational-ai", "anthropic", "openai", "cli"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "openai>=2.0",
+    "anthropic>=0.40",
+    "typer>=0.12",
+    "rich>=13",
+    "pydantic>=2.5",
+    "python-dotenv>=1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/elihenriksen/nora"
+Repository = "https://github.com/elihenriksen/nora"
+Issues = "https://github.com/elihenriksen/nora/issues"
+
+[project.scripts]
+nora = "nora.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["nora*"]
+
+[tool.setuptools.package-data]
+nora = ["schema.sql", "eval_fixtures/*.json"]

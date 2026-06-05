@@ -1,0 +1,36 @@
+# Default: detect text vs binary, normalize line endings to LF in the repo,
+# convert to native on checkout (LF on Unix, CRLF on Windows).
+* text=auto
+
+# Force LF for these — they're either Python (LF-only by convention),
+# shell scripts (must be LF or they break on Unix), or macOS .command files
+# (which Terminal.app expects to be LF).
+*.py        text eol=lf
+*.sh        text eol=lf
+*.command   text eol=lf
+Makefile    text eol=lf
+
+# Force CRLF for Windows batch files (cmd.exe gets confused by LF-only .bat).
+*.bat       text eol=crlf
+*.cmd       text eol=crlf
+
+# SQL is conventionally LF.
+*.sql       text eol=lf
+
+# JSON / YAML / Markdown / TOML are LF in this repo.
+*.json      text eol=lf
+*.md        text eol=lf
+*.toml      text eol=lf
+*.yaml      text eol=lf
+*.yml       text eol=lf
+
+# Binary files: don't touch.
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.gif       binary
+*.ico       binary
+*.zip       binary
+*.db        binary
+*.sqlite    binary
+*.sqlite3   binary
